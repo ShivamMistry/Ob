@@ -1,0 +1,4 @@
+This obfuscator produces files that will not verify on Java 7, to get past this use the following flag:
+-XX:-UseSplitVerifier
+when running code that is modified with this obfuscator.
+This shall be addressed soon.
