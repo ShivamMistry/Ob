@@ -73,6 +73,7 @@ public class StringEncrypter {
 		MethodGen newMg = decryptMethod.copy(cg.getClassName(),
 				cg.getConstantPool());
 		newMg.setName(methodName);
+		cg.getConstantPool().addMethodref(newMg);
 		cg.addMethod(newMg.getMethod());
 	}
 
@@ -93,18 +94,15 @@ public class StringEncrypter {
 					if (ldc.getType(cpg).equals(Type.STRING)) {
 						int cpIndex = ldc.getIndex();
 						String original = ldc.getValue(cpg).toString();
-						if (!encryptedStrings.contains(original)) {
+						//if (!encryptedStrings.contains(original)) {
 							String encrypted = A.A.decrypt(original);
 							int strIndex = cpg.addString(encrypted);
 							cpg.setConstant(cpIndex, cpg.getConstant(strIndex));
 							int utf8 = cpg.lookupUtf8(original);
-							if (utf8 == 48) {
-								System.out.println(original);
-							}
 							int utf8new = cpg.lookupUtf8(encrypted);
 							cpg.setConstant(utf8, cpg.getConstant(utf8new));
 							encryptedStrings.add(encrypted);
-						}
+						//}
 						il.insert(handle.getNext(), invoke);
 						callsChanged++;
 					}

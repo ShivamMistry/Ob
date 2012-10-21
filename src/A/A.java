@@ -1,5 +1,11 @@
 package A;
 
+/**
+ * Encrypts/decrypts strings
+ * 
+ * @author Shivam Mistry
+ * 
+ */
 public final class A {
 	public final static String decrypt(String encrypted) {
 		StringBuilder builder = new StringBuilder();
