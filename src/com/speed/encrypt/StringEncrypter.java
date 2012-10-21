@@ -1,6 +1,8 @@
 package com.speed.encrypt;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.bcel.Constants;
 import org.apache.bcel.classfile.ClassParser;
@@ -27,6 +29,7 @@ public class StringEncrypter {
 	private String methodName;
 	private static MethodGen decryptMethod;
 	private int callsChanged;
+	private List<String> encryptedStrings;
 
 	static {
 		ClassParser cp = new ClassParser("resources/A/A.class");
@@ -52,6 +55,7 @@ public class StringEncrypter {
 				Type.STRING, new Type[] { Type.STRING })) != null) {
 			methodName = methodName + "A";
 		}
+		encryptedStrings = new ArrayList<String>();
 		System.out.printf(
 				"Loading encrypter for %s, decrypt method name: %s\n",
 				cg.getClassName(), methodName);
@@ -89,12 +93,18 @@ public class StringEncrypter {
 					if (ldc.getType(cpg).equals(Type.STRING)) {
 						int cpIndex = ldc.getIndex();
 						String original = ldc.getValue(cpg).toString();
-						String encrypted = A.A.decrypt(original);
-						int strIndex = cpg.addString(encrypted);
-						cpg.setConstant(cpIndex, cpg.getConstant(strIndex));
-						int utf8 = cpg.lookupUtf8(original);
-						int utf8new = cpg.lookupUtf8(encrypted);
-						cpg.setConstant(utf8, cpg.getConstant(utf8new));
+						if (!encryptedStrings.contains(original)) {
+							String encrypted = A.A.decrypt(original);
+							int strIndex = cpg.addString(encrypted);
+							cpg.setConstant(cpIndex, cpg.getConstant(strIndex));
+							int utf8 = cpg.lookupUtf8(original);
+							if (utf8 == 48) {
+								System.out.println(original);
+							}
+							int utf8new = cpg.lookupUtf8(encrypted);
+							cpg.setConstant(utf8, cpg.getConstant(utf8new));
+							encryptedStrings.add(encrypted);
+						}
 						il.insert(handle.getNext(), invoke);
 						callsChanged++;
 					}

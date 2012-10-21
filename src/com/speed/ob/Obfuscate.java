@@ -3,6 +3,7 @@ package com.speed.ob;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -54,7 +55,7 @@ public class Obfuscate {
 		JarOutputStream out = null;
 		try {
 			out = new JarOutputStream(new FileOutputStream(jarFile.getName()
-					.replace(".jar", "-ob.jar")), jarFile.getManifest());
+					.replace(".jar", "-ob.jar")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -63,13 +64,25 @@ public class Obfuscate {
 			try {
 				JarEntry newEntry = new JarEntry(entry.getName());
 				out.putNextEntry(newEntry);
-				ClassParser cp = new ClassParser(jarFile.getInputStream(entry),
-						entry.getName());
-				JavaClass jc = cp.parse();
-				ClassGen cg = new ClassGen(jc);
-				new StringEncrypter(cg).execute();
-				out.write(cg.getJavaClass().getBytes());
-				out.flush();
+				if (entry.getName().endsWith(".class")) {
+					ClassParser cp = new ClassParser(
+							jarFile.getInputStream(entry), entry.getName());
+					JavaClass jc = cp.parse();
+					ClassGen cg = new ClassGen(jc);
+					new StringEncrypter(cg).execute();
+					out.write(cg.getJavaClass().getBytes());
+					out.flush();
+					out.closeEntry();
+				} else {
+					byte[] buffer = new byte[1024];
+					InputStream in = jarFile.getInputStream(entry);
+					int read;
+					while ((read = in.read(buffer)) != -1) {
+						out.write(buffer, 0, read);
+					}
+					out.flush();
+					out.closeEntry();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
