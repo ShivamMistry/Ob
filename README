@@ -2,3 +2,7 @@ This obfuscator produces files that will not verify on Java 7, to get past this 
 -XX:-UseSplitVerifier
 when running code that is modified with this obfuscator.
 This shall be addressed soon.
+
+Obfuscates Java class files, currently supports:
+- field renaming
+- string encryption
