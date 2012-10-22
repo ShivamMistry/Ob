@@ -6,3 +6,10 @@ This shall be addressed soon.
 Obfuscates Java class files, currently supports:
 - field renaming
 - string encryption
+
+Run as:
+	java -cp bcel.jar com.speed.ob.Obfuscate files...
+	
+where files are the .class or .jar files that you wish to obfuscate.
+.class files will be replaced and the original files saved as name_bak.class
+.jar files will be retained and the obfuscated file will be written as name_ob.jar
