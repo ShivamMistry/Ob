@@ -7,12 +7,12 @@
 public class HelloWorld {
 
 	public static int x = 0;
-	
+
 	public static void main(String[] args) {
 		System.out.println("Hello, world!");
 		wat();
 	}
-	
+
 	public static void wat() {
 		x++;
 		System.out.println("wat.");
@@ -21,8 +21,10 @@ public class HelloWorld {
 
 	private static void lol() {
 		x++;
-		System.out.println("wat.");
-		System.out.println("lol.");
+		for (int i = 0; i < x; i++) {
+			System.out.println("wat.");
+			System.out.println("lol.");
+		}
 	}
 
 }

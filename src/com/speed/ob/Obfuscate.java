@@ -29,7 +29,8 @@ public class Obfuscate {
 	public static List<ClassGen> classes;
 	public static List<JarEntry> entries;
 	private static final Class<?>[] TRANSFORMS = new Class<?>[] {
-			StringEncrypter.class, FieldRenamer.class };
+			StringEncrypter.class, /* ControlFlowTransform.class, */
+			FieldRenamer.class /* , ClassRenamer.class */};
 	private static boolean currentlyJar;
 
 	public static boolean isCurrentlyJar() {
@@ -121,9 +122,11 @@ public class Obfuscate {
 		}
 		for (int i = 0; i < classes.size(); i++) {
 			ClassGen cg = classes.get(i);
-			JarEntry newEntry = entries.get(i);
+			// JarEntry newEntry = entries.get(i);
+			String name = cg.getClassName().replace('.', '/').concat(".class");
+			JarEntry entry2 = new JarEntry(name);
 			try {
-				out.putNextEntry(newEntry);
+				out.putNextEntry(entry2);
 				out.write(cg.getJavaClass().getBytes());
 				out.flush();
 				out.closeEntry();

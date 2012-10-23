@@ -1,7 +1,5 @@
 package com.speed.ob.transforms;
 
-import java.util.Random;
-
 import org.apache.bcel.Constants;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.generic.ClassGen;
@@ -47,16 +45,15 @@ public class ControlFlowTransform extends ObTransform {
 	}
 
 	public void findBranches() {
-		Random random = new Random();
+		// Random random = new Random();
 		for (Method m : cg.getMethods()) {
-			if (m.isAbstract() || m.isNative())
+			if (m.isAbstract() || m.isNative() || m.getName().equals("<init>"))
 				continue;
 			MethodGen mg = new MethodGen(m, cg.getClassName(),
 					cg.getConstantPool());
-			int maxStack = mg.getMaxStack();
 			for (InstructionHandle ih : mg.getInstructionList()
 					.getInstructionHandles()) {
-				if (ih.getInstruction() instanceof GOTO && random.nextBoolean()) {
+				if (ih.getInstruction() instanceof GOTO) {
 					InstructionList list = mg.getInstructionList();
 					InstructionFactory factory = new InstructionFactory(cg);
 					list.append(list.append(ih.getPrev(), new ICONST(0)),
@@ -65,11 +62,13 @@ public class ControlFlowTransform extends ObTransform {
 					ih.setInstruction(InstructionFactory
 							.createBranchInstruction(Constants.IF_ICMPEQ,
 									((GOTO) ih.getInstruction()).getTarget()));
-					// list.append(ih, new NOP());
+
+					list.append(ih,
+							new GOTO(mg.getInstructionList().getStart()));
 				}
 			}
 			mg.setMaxLocals();
-			mg.setMaxStack(maxStack);
+			mg.setMaxStack();
 			cg.replaceMethod(m, mg.getMethod());
 		}
 	}

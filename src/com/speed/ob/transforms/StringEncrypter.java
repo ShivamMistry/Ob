@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.bcel.Constants;
 import org.apache.bcel.classfile.ConstantString;
+import org.apache.bcel.classfile.ConstantUtf8;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.generic.ALOAD;
 import org.apache.bcel.generic.ASTORE;
@@ -144,13 +145,12 @@ public class StringEncrypter extends ObTransform {
 						String original = ldc.getValue(cpg).toString();
 						if (!encryptedStrings.contains(original)) {
 							String encrypted = A.A.decrypt(original);
-							int strIndex = cpg.addString(encrypted);
-							ConstantString cstnt = (ConstantString) cpg
-									.getConstant(strIndex);
-							int utf8 = cstnt.getStringIndex();
-							cpg.setConstant(cpIndex, cpg.getConstant(strIndex));
-							int utf8new = cpg.lookupUtf8(encrypted);
-							cpg.setConstant(utf8, cpg.getConstant(utf8new));
+							ConstantString string = (ConstantString) cpg
+									.getConstant(cpIndex);
+							int utf8 = string.getStringIndex();
+							ConstantUtf8 con = (ConstantUtf8) cpg
+									.getConstant(utf8);
+							con.setBytes(encrypted);
 							encryptedStrings.add(encrypted);
 						}
 						il.insert(handle.getNext(), invoke);
