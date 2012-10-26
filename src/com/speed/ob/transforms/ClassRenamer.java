@@ -15,7 +15,7 @@ import com.speed.ob.Obfuscate;
 /**
  * Renames classes.
  * 
- * @author Shivam
+ * @author Shivam Mistry
  * 
  */
 public class ClassRenamer extends ObTransform {
@@ -44,39 +44,41 @@ public class ClassRenamer extends ObTransform {
 			newName = nameGen.next();
 		}
 		cg.setClassName(newName);
-		replaceFields(cg, className, newName);
+		fixConstantPool(cg, className, newName);
+		System.out.println("\t" + className + " renamed to " + newName);
 		if (Obfuscate.isCurrentlyJar())
 			for (ClassGen c : Obfuscate.classes) {
 				ConstantPoolGen cpg = c.getConstantPool();
-				replaceFields(c, className, newName);
+				fixConstantPool(c, className, newName);
 				int index = cpg.lookupClass(className);
 				if (index > -1) {
 					ConstantClass con = (ConstantClass) cpg.getConstant(index);
 					int utf = con.getNameIndex();
 					ConstantUtf8 utf8 = (ConstantUtf8) cpg.getConstant(utf);
 					utf8.setBytes(newName);
-					System.out.println(className + " renamed to " + newName
-							+ " in class " + c.getClassName());
+					System.out.println("\t" + className + " renamed to "
+							+ newName + " in class " + c.getClassName());
 				}
 			}
-		System.out.println(className + " renamed to " + newName);
 
 	}
 
-	private void replaceFields(ClassGen cg, String className, String newName) {
-
+	private void fixConstantPool(ClassGen cg, String className, String newName) {
 		ConstantPoolGen cpg = cg.getConstantPool();
 		for (Constant c : cpg.getConstantPool().getConstantPool()) {
 			if (c instanceof ConstantUtf8) {
 				ConstantUtf8 con = (ConstantUtf8) c;
 				String className1 = className.replace('.', '/');
 				if (con.getBytes().contains("L" + className1 + ";")) {
+					System.out.println("\treplacing " + con.getBytes());
 					String bytes = con.getBytes().replace(
 							'L' + className1 + ';',
 							'L' + newName.replace('.', '/') + ';');
 					con.setBytes(bytes);
 				} else if (con.getBytes().contains(className1)) {
-					String bytes = con.getBytes().replace(className1, newName);
+					System.out.println("\treplacing " + con.getBytes());
+					String bytes = con.getBytes().replace(className1,
+							newName.replace('.', '/'));
 					con.setBytes(bytes);
 				}
 			}

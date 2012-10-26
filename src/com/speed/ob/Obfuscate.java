@@ -15,6 +15,7 @@ import org.apache.bcel.classfile.ClassParser;
 import org.apache.bcel.classfile.JavaClass;
 import org.apache.bcel.generic.ClassGen;
 
+import com.speed.ob.transforms.ClassRenamer;
 import com.speed.ob.transforms.FieldRenamer;
 import com.speed.ob.transforms.StringEncrypter;
 
@@ -30,7 +31,7 @@ public class Obfuscate {
 	public static List<JarEntry> entries;
 	private static final Class<?>[] TRANSFORMS = new Class<?>[] {
 			StringEncrypter.class, /* ControlFlowTransform.class, */
-			FieldRenamer.class /* , ClassRenamer.class */};
+			FieldRenamer.class, ClassRenamer.class };
 	private static boolean currentlyJar;
 
 	public static boolean isCurrentlyJar() {

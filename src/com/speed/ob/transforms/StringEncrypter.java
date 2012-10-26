@@ -59,16 +59,20 @@ public class StringEncrypter extends ObTransform {
 	}
 
 	public void execute() {
-		System.out.println("Starting encryption on class " + cg.getClassName());
+		System.out.println("\tStarting encryption on class "
+				+ cg.getClassName());
 		changeCalls();
-		System.out.println("Changed " + callsChanged + " LDCs");
+		System.out.println("\tChanged " + callsChanged + " LDCs");
 		if (callsChanged > 0) {
 			insertMethod();
-			System.out.println("Inserted method " + methodName);
+			System.out.println("\tInserted method " + methodName);
 		}
 	}
 
 	private void insertMethod() {
+		// this method generates the decryption method, this way I could
+		// technically encrypt strings with information from the classes
+		// themselves, making it harder to decrypt
 		InstructionList list = new InstructionList();
 		MethodGen newMethod = new MethodGen(
 				(Constants.ACC_PRIVATE | Constants.ACC_STATIC), Type.STRING,
