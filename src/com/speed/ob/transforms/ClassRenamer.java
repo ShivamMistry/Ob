@@ -44,6 +44,13 @@ public class ClassRenamer extends ObTransform {
 			newName = nameGen.next();
 		}
 		cg.setClassName(newName);
+		String fileName = cg.getFileName();
+		int ut = cg.getConstantPool().lookupUtf8(fileName);
+		if(ut > -1) {
+			ConstantUtf8 c = (ConstantUtf8) cg.getConstantPool().getConstant(ut);
+			System.out.println("\trenamed source file: " + fileName + " to " + nameGen.current() + ".java");
+			c.setBytes(nameGen.current() + ".java");
+		}
 		fixConstantPool(cg, className, newName);
 		System.out.println("\t" + className + " renamed to " + newName);
 		if (Obfuscate.isCurrentlyJar())
