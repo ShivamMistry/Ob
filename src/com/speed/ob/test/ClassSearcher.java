@@ -2,6 +2,7 @@ package com.speed.ob.test;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Scanner;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -46,6 +47,12 @@ public class ClassSearcher {
 
 	public static void main(String[] args) {
 		try {
+			if (args.length == 0) {
+				Scanner scanner = new Scanner(System.in);
+				String a = scanner.nextLine();
+				String b = scanner.nextLine();
+				new ClassSearcher(a,b);
+			}
 			new ClassSearcher(args[0], args[1]);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -17,7 +17,7 @@ import org.apache.bcel.generic.ClassGen;
 
 import com.speed.ob.transforms.ClassRenamer;
 import com.speed.ob.transforms.FieldRenamer;
-import com.speed.ob.transforms.StringEncrypter;
+import com.speed.ob.transforms.StringEncryptor;
 
 /**
  * Runs the obfuscation transforms on code.
@@ -30,7 +30,7 @@ public class Obfuscate {
 	public static List<ClassGen> classes;
 	public static List<JarEntry> entries;
 	private static final Class<?>[] TRANSFORMS = new Class<?>[] {
-			StringEncrypter.class, /* ControlFlowTransform.class, */
+			StringEncryptor.class, /* ControlFlowTransform.class, */
 			FieldRenamer.class, ClassRenamer.class };
 	private static boolean currentlyJar;
 
