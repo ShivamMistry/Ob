@@ -1,0 +1,436 @@
+Ob is starting!
+
+Processing: example\HelloWorld.class
+	Starting encryption on class HelloWorld
+	Changed 4 LDCs
+	Inserted method aA
+Starting field renamer on class HelloWorld
+	Renaming field HelloWorld.x to a
+HelloWorld not renamed as contains as main method
+
+Processing: example\SpeedPaste.jar
+	Starting encryption on class com.speed.paste.PasteGui$1
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteGui$1
+	renamed source file: PasteGui.java to a.java
+	replacing com/speed/paste/PasteGui$1
+	replacing Lcom/speed/paste/PasteGui$1;
+	com.speed.paste.PasteGui$1 renamed to com.speed.paste.a
+	com.speed.paste.PasteGui$1 renamed to com.speed.paste.a in class com.speed.paste.a
+	replacing com/speed/paste/PasteGui$1
+	com.speed.paste.PasteGui$1 renamed to com.speed.paste.a in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui$2
+	Changed 2 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteGui$2
+	Renaming field com.speed.paste.PasteGui$2.this$0 to a
+	1 constant pool references to this$0 changed to a
+	renamed source file: PasteGui.java to b.java
+	replacing com/speed/paste/PasteGui$2
+	replacing Lcom/speed/paste/PasteGui$2;
+	com.speed.paste.PasteGui$2 renamed to com.speed.paste.b
+	com.speed.paste.PasteGui$2 renamed to com.speed.paste.b in class com.speed.paste.b
+	replacing com/speed/paste/PasteGui$2
+	com.speed.paste.PasteGui$2 renamed to com.speed.paste.b in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui$3
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteGui$3
+	Renaming field com.speed.paste.PasteGui$3.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteGui$3.val$s to b
+	1 constant pool references to val$s changed to b
+	renamed source file: PasteGui.java to c.java
+	replacing com/speed/paste/PasteGui$3
+	replacing Lcom/speed/paste/PasteGui$3;
+	com.speed.paste.PasteGui$3 renamed to com.speed.paste.c
+	com.speed.paste.PasteGui$3 renamed to com.speed.paste.c in class com.speed.paste.c
+	replacing com/speed/paste/PasteGui$3
+	com.speed.paste.PasteGui$3 renamed to com.speed.paste.c in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui$4
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteGui$4
+	Renaming field com.speed.paste.PasteGui$4.this$0 to a
+	1 constant pool references to this$0 changed to a
+	renamed source file: PasteGui.java to d.java
+	replacing com/speed/paste/PasteGui$4
+	replacing Lcom/speed/paste/PasteGui$4;
+	com.speed.paste.PasteGui$4 renamed to com.speed.paste.d
+	com.speed.paste.PasteGui$4 renamed to com.speed.paste.d in class com.speed.paste.d
+	replacing com/speed/paste/PasteGui$4
+	com.speed.paste.PasteGui$4 renamed to com.speed.paste.d in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui$5
+	Changed 2 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteGui$5
+	Renaming field com.speed.paste.PasteGui$5.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteGui$5.val$pasteText to b
+	1 constant pool references to val$pasteText changed to b
+	renamed source file: PasteGui.java to e.java
+	replacing com/speed/paste/PasteGui$5
+	replacing Lcom/speed/paste/PasteGui$5;
+	com.speed.paste.PasteGui$5 renamed to com.speed.paste.e
+	com.speed.paste.PasteGui$5 renamed to com.speed.paste.e in class com.speed.paste.e
+	replacing com/speed/paste/PasteGui$5
+	com.speed.paste.PasteGui$5 renamed to com.speed.paste.e in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui$6
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteGui$6
+	Renaming field com.speed.paste.PasteGui$6.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteGui$6.val$comboBox to b
+	1 constant pool references to val$comboBox changed to b
+	Renaming field com.speed.paste.PasteGui$6.val$temp to c
+	1 constant pool references to val$temp changed to c
+	renamed source file: PasteGui.java to f.java
+	replacing com/speed/paste/PasteGui$6
+	replacing Lcom/speed/paste/PasteGui$6;
+	com.speed.paste.PasteGui$6 renamed to com.speed.paste.f
+	com.speed.paste.PasteGui$6 renamed to com.speed.paste.f in class com.speed.paste.f
+	replacing com/speed/paste/PasteGui$6
+	com.speed.paste.PasteGui$6 renamed to com.speed.paste.f in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui$7
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteGui$7
+	Renaming field com.speed.paste.PasteGui$7.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteGui$7.val$comboBox to b
+	1 constant pool references to val$comboBox changed to b
+	Renaming field com.speed.paste.PasteGui$7.val$pasteText to c
+	1 constant pool references to val$pasteText changed to c
+	renamed source file: PasteGui.java to g.java
+	replacing com/speed/paste/PasteGui$7
+	replacing Lcom/speed/paste/PasteGui$7;
+	com.speed.paste.PasteGui$7 renamed to com.speed.paste.g
+	com.speed.paste.PasteGui$7 renamed to com.speed.paste.g in class com.speed.paste.g
+	replacing com/speed/paste/PasteGui$7
+	com.speed.paste.PasteGui$7 renamed to com.speed.paste.g in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui$8
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteGui$8
+	Renaming field com.speed.paste.PasteGui$8.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteGui$8.val$comboBox to b
+	1 constant pool references to val$comboBox changed to b
+	renamed source file: PasteGui.java to h.java
+	replacing com/speed/paste/PasteGui$8
+	replacing Lcom/speed/paste/PasteGui$8;
+	com.speed.paste.PasteGui$8 renamed to com.speed.paste.h
+	com.speed.paste.PasteGui$8 renamed to com.speed.paste.h in class com.speed.paste.h
+	replacing com/speed/paste/PasteGui$8
+	com.speed.paste.PasteGui$8 renamed to com.speed.paste.h in class com.speed.paste.PasteGui
+	Starting encryption on class com.speed.paste.PasteGui
+	Changed 24 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteGui
+	Renaming field com.speed.paste.PasteGui.pasteFrame to a
+	1 constant pool references to pasteFrame changed to a
+	Renaming field com.speed.paste.PasteGui.textField to b
+	1 constant pool references to textField changed to b
+	Renaming field com.speed.paste.PasteGui.{m{}aol| to c
+	0 constant pool references to {m{}aol| changed to c
+	Renaming field com.speed.paste.PasteGui.icon to d
+	1 constant pool references to icon changed to d
+	Renaming field com.speed.paste.PasteGui.menu to e
+	1 constant pool references to menu changed to e
+	Renaming field com.speed.paste.PasteGui.dataDir to f
+	1 constant pool references to dataDir changed to f
+	Renaming field com.speed.paste.PasteGui.pasteImage to g
+	1 constant pool references to pasteImage changed to g
+	Renaming field com.speed.paste.PasteGui.DEFAULT_PROVIDERS to h
+	1 constant pool references to DEFAULT_PROVIDERS changed to h
+	Renaming field com.speed.paste.PasteGui.PASTE_32 to i
+	0 constant pool references to PASTE_32 changed to i
+com.speed.paste.PasteGui not renamed as contains as main method
+	Starting encryption on class com.speed.paste.ServiceInfo
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.ServiceInfo
+	renamed source file: ServiceInfo.java to i.java
+	replacing com/speed/paste/ServiceInfo
+	com.speed.paste.ServiceInfo renamed to com.speed.paste.i
+	replacing com/speed/paste/ServiceInfo
+	replacing Lcom/speed/paste/ServiceInfo;
+	com.speed.paste.ServiceInfo renamed to com.speed.paste.i in class com.speed.paste.f
+	replacing com/speed/paste/ServiceInfo
+	replacing Lcom/speed/paste/ServiceInfo;
+	com.speed.paste.ServiceInfo renamed to com.speed.paste.i in class com.speed.paste.PasteGui
+	com.speed.paste.ServiceInfo renamed to com.speed.paste.i in class com.speed.paste.i
+	replacing com/speed/paste/ServiceInfo
+	replacing Lcom/speed/paste/ServiceInfo;
+	com.speed.paste.ServiceInfo renamed to com.speed.paste.i in class com.speed.paste.PasteService
+	replacing Lcom/speed/paste/ServiceInfo;
+	replacing Lcom/speed/paste/ServiceInfo;
+	replacing Lcom/speed/paste/ServiceInfo;
+	Starting encryption on class com.speed.paste.PasteHistoryDialog$1
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteHistoryDialog$1
+	Renaming field com.speed.paste.PasteHistoryDialog$1.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteHistoryDialog$1.val$service to b
+	1 constant pool references to val$service changed to b
+	renamed source file: PasteHistoryDialog.java to j.java
+	replacing com/speed/paste/PasteHistoryDialog$1
+	replacing Lcom/speed/paste/PasteHistoryDialog$1;
+	com.speed.paste.PasteHistoryDialog$1 renamed to com.speed.paste.j
+	com.speed.paste.PasteHistoryDialog$1 renamed to com.speed.paste.j in class com.speed.paste.j
+	replacing com/speed/paste/PasteHistoryDialog$1
+	com.speed.paste.PasteHistoryDialog$1 renamed to com.speed.paste.j in class com.speed.paste.PasteHistoryDialog
+	Starting encryption on class com.speed.paste.PasteHistoryDialog$2
+	Changed 2 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteHistoryDialog$2
+	Renaming field com.speed.paste.PasteHistoryDialog$2.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteHistoryDialog$2.val$history to b
+	1 constant pool references to val$history changed to b
+	Renaming field com.speed.paste.PasteHistoryDialog$2.val$service to c
+	1 constant pool references to val$service changed to c
+	renamed source file: PasteHistoryDialog.java to k.java
+	replacing com/speed/paste/PasteHistoryDialog$2
+	replacing Lcom/speed/paste/PasteHistoryDialog$2;
+	com.speed.paste.PasteHistoryDialog$2 renamed to com.speed.paste.k
+	com.speed.paste.PasteHistoryDialog$2 renamed to com.speed.paste.k in class com.speed.paste.k
+	replacing com/speed/paste/PasteHistoryDialog$2
+	com.speed.paste.PasteHistoryDialog$2 renamed to com.speed.paste.k in class com.speed.paste.PasteHistoryDialog
+	Starting encryption on class com.speed.paste.PasteHistoryDialog$3
+	Changed 1 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteHistoryDialog$3
+	Renaming field com.speed.paste.PasteHistoryDialog$3.this$0 to a
+	1 constant pool references to this$0 changed to a
+	renamed source file: PasteHistoryDialog.java to l.java
+	replacing com/speed/paste/PasteHistoryDialog$3
+	replacing Lcom/speed/paste/PasteHistoryDialog$3;
+	com.speed.paste.PasteHistoryDialog$3 renamed to com.speed.paste.l
+	com.speed.paste.PasteHistoryDialog$3 renamed to com.speed.paste.l in class com.speed.paste.l
+	replacing com/speed/paste/PasteHistoryDialog$3
+	com.speed.paste.PasteHistoryDialog$3 renamed to com.speed.paste.l in class com.speed.paste.PasteHistoryDialog
+	Starting encryption on class com.speed.paste.PasteHistoryDialog$4
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.PasteHistoryDialog$4
+	Renaming field com.speed.paste.PasteHistoryDialog$4.this$0 to a
+	1 constant pool references to this$0 changed to a
+	renamed source file: PasteHistoryDialog.java to m.java
+	replacing com/speed/paste/PasteHistoryDialog$4
+	replacing Lcom/speed/paste/PasteHistoryDialog$4;
+	com.speed.paste.PasteHistoryDialog$4 renamed to com.speed.paste.m
+	com.speed.paste.PasteHistoryDialog$4 renamed to com.speed.paste.m in class com.speed.paste.m
+	replacing com/speed/paste/PasteHistoryDialog$4
+	com.speed.paste.PasteHistoryDialog$4 renamed to com.speed.paste.m in class com.speed.paste.PasteHistoryDialog
+	Starting encryption on class com.speed.paste.PasteHistoryDialog$5
+	Changed 1 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteHistoryDialog$5
+	Renaming field com.speed.paste.PasteHistoryDialog$5.this$0 to a
+	1 constant pool references to this$0 changed to a
+	Renaming field com.speed.paste.PasteHistoryDialog$5.val$service to b
+	1 constant pool references to val$service changed to b
+	renamed source file: PasteHistoryDialog.java to n.java
+	replacing com/speed/paste/PasteHistoryDialog$5
+	replacing Lcom/speed/paste/PasteHistoryDialog$5;
+	com.speed.paste.PasteHistoryDialog$5 renamed to com.speed.paste.n
+	com.speed.paste.PasteHistoryDialog$5 renamed to com.speed.paste.n in class com.speed.paste.n
+	replacing com/speed/paste/PasteHistoryDialog$5
+	com.speed.paste.PasteHistoryDialog$5 renamed to com.speed.paste.n in class com.speed.paste.PasteHistoryDialog
+	Starting encryption on class com.speed.paste.PasteHistoryDialog
+	Changed 10 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteHistoryDialog
+	Renaming field com.speed.paste.PasteHistoryDialog.contentPanel to a
+	1 constant pool references to contentPanel changed to a
+	Renaming field com.speed.paste.PasteHistoryDialog.model to b
+	1 constant pool references to model changed to b
+	Renaming field com.speed.paste.PasteHistoryDialog.list to c
+	1 constant pool references to list changed to c
+	renamed source file: PasteHistoryDialog.java to o.java
+	replacing com/speed/paste/PasteHistoryDialog
+	replacing (Lcom/speed/paste/PasteHistoryDialog;Lcom/speed/paste/PasteService;)V
+	replacing (Lcom/speed/paste/PasteHistoryDialog;Ljava/util/Set;Lcom/speed/paste/PasteService;)V
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)V
+	replacing Lcom/speed/paste/PasteHistoryDialog;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)Ljavax/swing/DefaultListModel;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)Ljavax/swing/JList;
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o
+	replacing com/speed/paste/PasteHistoryDialog
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o in class com.speed.paste.h
+	replacing Lcom/speed/paste/PasteHistoryDialog;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteHistoryDialog
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)Ljavax/swing/DefaultListModel;
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o in class com.speed.paste.j
+	replacing Lcom/speed/paste/PasteHistoryDialog;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;Ljava/util/Set;Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteHistoryDialog
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)Ljavax/swing/JList;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)Ljavax/swing/DefaultListModel;
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o in class com.speed.paste.k
+	replacing Lcom/speed/paste/PasteHistoryDialog;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)V
+	replacing com/speed/paste/PasteHistoryDialog
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)Ljavax/swing/JList;
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o in class com.speed.paste.l
+	replacing Lcom/speed/paste/PasteHistoryDialog;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;)V
+	replacing com/speed/paste/PasteHistoryDialog
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o in class com.speed.paste.m
+	replacing Lcom/speed/paste/PasteHistoryDialog;
+	replacing (Lcom/speed/paste/PasteHistoryDialog;Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteHistoryDialog
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o in class com.speed.paste.n
+	com.speed.paste.PasteHistoryDialog renamed to com.speed.paste.o in class com.speed.paste.o
+	Starting encryption on class com.speed.paste.PasteService$PasteHistory
+	Changed 1 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteService$PasteHistory
+	Renaming field com.speed.paste.PasteService$PasteHistory.link to a
+com.speed.ob.transforms.FieldRenamer failed to transform class: com.speed.paste.PasteService$PasteHistory
+	renamed source file: PasteService.java to p.java
+	replacing com/speed/paste/PasteService$PasteHistory
+	replacing Lcom/speed/paste/PasteService$PasteHistory;
+	replacing (Lcom/speed/paste/PasteService$PasteHistory;)I
+	replacing Ljava/lang/Object;Ljava/lang/Comparable<Lcom/speed/paste/PasteService$PasteHistory;>;
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p
+	replacing com/speed/paste/PasteService$PasteHistory
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p in class com.speed.paste.j
+	replacing com/speed/paste/PasteService$PasteHistory
+	replacing Lcom/speed/paste/PasteService$PasteHistory;
+	replacing Ljava/util/List<Lcom/speed/paste/PasteService$PasteHistory;>;
+	replacing Ljava/util/List<Lcom/speed/paste/PasteService$PasteHistory;
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p in class com.speed.paste.k
+	replacing com/speed/paste/PasteService$PasteHistory
+	replacing Lcom/speed/paste/PasteService$PasteHistory;
+	replacing Ljava/util/List<Lcom/speed/paste/PasteService$PasteHistory;>;
+	replacing Ljava/util/List<Lcom/speed/paste/PasteService$PasteHistory;
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p in class com.speed.paste.l
+	replacing com/speed/paste/PasteService$PasteHistory
+	replacing Lcom/speed/paste/PasteService$PasteHistory;
+	replacing Ljava/util/Set<Lcom/speed/paste/PasteService$PasteHistory;>;
+	replacing Ljava/util/Set<Lcom/speed/paste/PasteService$PasteHistory;
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p in class com.speed.paste.n
+	replacing Ljavax/swing/DefaultListModel<Lcom/speed/paste/PasteService$PasteHistory;>;
+	replacing Ljavax/swing/JList<Lcom/speed/paste/PasteService$PasteHistory;>;
+	replacing com/speed/paste/PasteService$PasteHistory
+	replacing Lcom/speed/paste/PasteService$PasteHistory;
+	replacing Ljava/util/Set<Lcom/speed/paste/PasteService$PasteHistory;>;
+	replacing Ljava/util/Set<Lcom/speed/paste/PasteService$PasteHistory;
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p in class com.speed.paste.o
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p in class com.speed.paste.p
+	replacing Ljava/util/Set<Lcom/speed/paste/PasteService$PasteHistory;>;
+	replacing com/speed/paste/PasteService$PasteHistory
+	replacing ()Ljava/util/Set<Lcom/speed/paste/PasteService$PasteHistory;>;
+	com.speed.paste.PasteService$PasteHistory renamed to com.speed.paste.p in class com.speed.paste.PasteService
+	Starting encryption on class com.speed.paste.PasteService
+	Changed 8 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.PasteService
+	Renaming field com.speed.paste.PasteService.onuphq to a
+	0 constant pool references to onuphq changed to a
+	renamed source file: PasteService.java to q.java
+	replacing com/speed/paste/PasteService
+	replacing Lcom/speed/paste/PasteService;
+	replacing (Lcom/speed/paste/PasteService;)I
+	replacing (Lcom/speed/paste/PasteService;Ljava/lang/String;J)V
+	replacing Ljava/lang/Object;Ljava/lang/Comparable<Lcom/speed/paste/PasteService;>;
+	com.speed.paste.PasteService renamed to com.speed.paste.q
+	replacing Lcom/speed/paste/PasteService;
+	replacing (Lcom/speed/paste/PasteGui;Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteService
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.c
+	replacing com/speed/paste/PasteService
+	replacing Lcom/speed/paste/PasteService;
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.f
+	replacing com/speed/paste/PasteService
+	replacing Lcom/speed/paste/PasteService;
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.g
+	replacing com/speed/paste/PasteService
+	replacing (Lcom/speed/paste/PasteService;)V
+	replacing Lcom/speed/paste/PasteService;
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.h
+	replacing Ljava/util/Set<Lcom/speed/paste/PasteService;>;
+	replacing [Ljava/lang/Class<+Lcom/speed/paste/PasteService;>;
+	replacing com/speed/paste/PasteService
+	replacing (Lcom/speed/paste/PasteGui;Lcom/speed/paste/PasteService;)V
+	replacing Lcom/speed/paste/PasteService;
+	replacing Ljava/lang/Class<+Lcom/speed/paste/PasteService;>;
+	replacing Ljava/lang/Class<+Lcom/speed/paste/PasteService;
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.PasteGui
+	replacing Lcom/speed/paste/PasteService;
+	replacing (Lcom/speed/paste/o;Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteService
+	replacing (Lcom/speed/paste/PasteService;)V
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.j
+	replacing Lcom/speed/paste/PasteService;
+	replacing (Lcom/speed/paste/o;Ljava/util/Set;Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteService
+	replacing (Lcom/speed/paste/PasteService;)V
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.k
+	replacing (Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteService
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.l
+	replacing (Lcom/speed/paste/PasteService;)V
+	replacing Lcom/speed/paste/PasteService;
+	replacing (Lcom/speed/paste/o;Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteService
+	replacing (Lcom/speed/paste/PasteService;)V
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.n
+	replacing (Lcom/speed/paste/PasteService;)V
+	replacing com/speed/paste/PasteService
+	replacing (Lcom/speed/paste/o;Lcom/speed/paste/PasteService;)V
+	replacing (Lcom/speed/paste/o;Ljava/util/Set;Lcom/speed/paste/PasteService;)V
+	replacing Lcom/speed/paste/PasteService;
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.o
+	replacing Lcom/speed/paste/PasteService;
+	replacing (Lcom/speed/paste/PasteService;Ljava/lang/String;J)V
+	replacing com/speed/paste/PasteService
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.p
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.q
+	replacing com/speed/paste/PasteService
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.providers.Pastebin
+	replacing com/speed/paste/PasteService
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.providers.Cafenull
+	replacing com/speed/paste/PasteService
+	com.speed.paste.PasteService renamed to com.speed.paste.q in class com.speed.paste.providers.SfpPaste
+	Starting encryption on class com.speed.paste.providers.Pastebin
+	Changed 0 LDCs
+Starting field renamer on class com.speed.paste.providers.Pastebin
+	renamed source file: Pastebin.java to r.java
+	replacing com/speed/paste/providers/Pastebin
+	replacing Lcom/speed/paste/providers/Pastebin;
+	com.speed.paste.providers.Pastebin renamed to com.speed.paste.providers.r
+	com.speed.paste.providers.Pastebin renamed to com.speed.paste.providers.r in class com.speed.paste.providers.r
+	Starting encryption on class com.speed.paste.providers.Cafenull
+	Changed 27 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.providers.Cafenull
+	Renaming field com.speed.paste.providers.Cafenull.HIGHLIGHT_LANGS to a
+	1 constant pool references to HIGHLIGHT_LANGS changed to a
+	Renaming field com.speed.paste.providers.Cafenull.privCheck to b
+	1 constant pool references to privCheck changed to b
+	Renaming field com.speed.paste.providers.Cafenull.highlighting to c
+	1 constant pool references to highlighting changed to c
+	Renaming field com.speed.paste.providers.Cafenull.pattern to d
+	1 constant pool references to pattern changed to d
+	renamed source file: Cafenull.java to s.java
+	replacing com/speed/paste/providers/Cafenull
+	replacing Lcom/speed/paste/providers/Cafenull;
+	com.speed.paste.providers.Cafenull renamed to com.speed.paste.providers.s
+	replacing com/speed/paste/providers/Cafenull
+	com.speed.paste.providers.Cafenull renamed to com.speed.paste.providers.s in class com.speed.paste.PasteGui
+	com.speed.paste.providers.Cafenull renamed to com.speed.paste.providers.s in class com.speed.paste.providers.s
+	Starting encryption on class com.speed.paste.providers.SfpPaste
+	Changed 44 LDCs
+	Inserted method aA
+Starting field renamer on class com.speed.paste.providers.SfpPaste
+	Renaming field com.speed.paste.providers.SfpPaste.highlighting to a
+	1 constant pool references to highlighting changed to a
+	Renaming field com.speed.paste.providers.SfpPaste.privCheck to b
+	1 constant pool references to privCheck changed to b
+	Renaming field com.speed.paste.providers.SfpPaste.HIGHLIGHT_LANGS to c
+	1 constant pool references to HIGHLIGHT_LANGS changed to c
+	renamed source file: SfpPaste.java to t.java
+	replacing com/speed/paste/providers/SfpPaste
+	replacing Lcom/speed/paste/providers/SfpPaste;
+	com.speed.paste.providers.SfpPaste renamed to com.speed.paste.providers.t
+	replacing com/speed/paste/providers/SfpPaste
+	com.speed.paste.providers.SfpPaste renamed to com.speed.paste.providers.t in class com.speed.paste.PasteGui
+	com.speed.paste.providers.SfpPaste renamed to com.speed.paste.providers.t in class com.speed.paste.providers.t

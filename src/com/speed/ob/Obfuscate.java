@@ -1,12 +1,17 @@
 package com.speed.ob;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.JarOutputStream;
@@ -33,21 +38,38 @@ public class Obfuscate {
 			StringEncryptor.class, /* ControlFlowTransform.class, */
 			FieldRenamer.class, ClassRenamer.class };
 	private static boolean currentlyJar;
+	private static PrintWriter logOutput;
 
 	public static boolean isCurrentlyJar() {
 		return currentlyJar;
+	}
+
+	public static void println(final Object o) {
+		System.out.println(o);
+		logOutput.println(o.toString());
 	}
 
 	public static void main(String[] args) {
 		if (args.length < 1) {
 			System.out.println("Usage: java com.speed.ob.Obfuscate [files...]");
 		} else {
+			try {
+				logOutput = new PrintWriter(new File(SimpleDateFormat
+						.getDateTimeInstance(SimpleDateFormat.SHORT,
+								SimpleDateFormat.LONG, Locale.UK)
+						.format(new Date()).replaceAll("[\\/: ]", " ")
+						+ ".log"));
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			Obfuscate.println("Ob is starting!");
 			for (int i = 0; i < args.length; i++) {
 				String fileName = args[i];
 				File file = new File(fileName);
 				if (!file.exists()) {
-					System.out.println(fileName + " doesn't exist!");
+					Obfuscate.println(fileName + " doesn't exist!");
 				} else {
+					Obfuscate.println("\r\nProcessing: " + fileName);
 					if (fileName.endsWith(".class")) {
 						currentlyJar = false;
 						transformClass(fileName);
@@ -61,10 +83,11 @@ public class Obfuscate {
 							e.printStackTrace();
 						}
 					} else {
-						System.out.println(fileName + " not supported.");
+						Obfuscate.println(fileName + " not supported.");
 					}
 				}
 			}
+			logOutput.close();
 		}
 	}
 
@@ -112,7 +135,7 @@ public class Obfuscate {
 					transform.execute();
 				} catch (Exception e) {
 					e.printStackTrace();
-					System.out.println(cl.getCanonicalName()
+					Obfuscate.println(cl.getCanonicalName()
 							+ " failed to transform class: "
 							+ cg.getClassName());
 				}

@@ -33,6 +33,7 @@ import org.apache.bcel.generic.SIPUSH;
 import org.apache.bcel.generic.Type;
 
 import com.speed.ob.ObTransform;
+import com.speed.ob.Obfuscate;
 
 /**
  * Encrypts strings.
@@ -54,18 +55,18 @@ public class StringEncryptor extends ObTransform {
 		}
 		encryptedStrings = new ArrayList<String>();
 		System.out.printf(
-				"Loading encrypter for %s, decrypt method name: %s\n",
+				"Loading encryptor for %s, decrypt method name: %s\n",
 				cg.getClassName(), methodName);
 	}
 
 	public void execute() {
-		System.out.println("\tStarting encryption on class "
-				+ cg.getClassName());
+		Obfuscate
+				.println("Starting encryption on class " + cg.getClassName());
 		changeCalls();
-		System.out.println("\tChanged " + callsChanged + " LDCs");
+		Obfuscate.println("\tChanged " + callsChanged + " LDCs");
 		if (callsChanged > 0) {
 			insertMethod();
-			System.out.println("\tInserted method " + methodName);
+			Obfuscate.println("\tInserted method " + methodName);
 		}
 	}
 

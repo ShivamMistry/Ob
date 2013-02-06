@@ -7,7 +7,7 @@ java -cp example -XX:-UseSplitVerifier HelloWorld
 echo.
 echo Running obfuscator
 echo.
-java -cp bin;bcel.jar;. com.speed.ob.Obfuscate example\HelloWorld.class example\SpeedPaste.jar
+java -cp bin;resources\bcel.jar;. com.speed.ob.Obfuscate example\HelloWorld.class example\Test.jar
 echo.
 echo Running HelloWorld with obfuscation
 echo.

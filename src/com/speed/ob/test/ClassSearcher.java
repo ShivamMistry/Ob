@@ -13,6 +13,8 @@ import org.apache.bcel.classfile.ConstantPool;
 import org.apache.bcel.classfile.ConstantUtf8;
 import org.apache.bcel.classfile.JavaClass;
 
+import com.speed.ob.Obfuscate;
+
 /**
  * Searches classes for a given string.
  * 
@@ -35,7 +37,7 @@ public class ClassSearcher {
 					if (c != null && c.getTag() == Constants.CONSTANT_Utf8) {
 						ConstantUtf8 utf8 = (ConstantUtf8) c;
 						if (utf8.getBytes().contains(searchTerm)) {
-							System.out.println(jc.getClassName() + " - "
+							Obfuscate.println(jc.getClassName() + " - "
 									+ utf8.getBytes());
 						}
 					}
@@ -49,14 +51,16 @@ public class ClassSearcher {
 		try {
 			if (args.length == 0) {
 				Scanner scanner = new Scanner(System.in);
+				System.out.print("Enter jar file name: ");
 				String a = scanner.nextLine();
+				System.out.print("Enter search term: ");
 				String b = scanner.nextLine();
-				new ClassSearcher(a,b);
-			}
-			new ClassSearcher(args[0], args[1]);
+				new ClassSearcher(a, b);
+				scanner.close();
+			} else
+				new ClassSearcher(args[0], args[1]);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
 }

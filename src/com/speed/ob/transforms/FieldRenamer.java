@@ -21,7 +21,7 @@ public class FieldRenamer extends ObTransform {
 
 	public FieldRenamer(ClassGen cg) {
 		super(cg);
-		System.out.println("Starting field renamer on class "
+		Obfuscate.println("Starting field renamer on class "
 				+ cg.getClassName());
 	}
 
@@ -34,7 +34,8 @@ public class FieldRenamer extends ObTransform {
 			String newName = nameGen.next();
 			int newIndex = cpg.addUtf8(newName);
 			cpg.setConstant(index, cpg.getConstant(newIndex));
-			System.out.println("\tRenaming " + originalName + " to " + newName);
+			Obfuscate.println("\tRenaming field " + cg.getClassName() + "."
+					+ originalName + " to " + newName);
 			if (Obfuscate.isCurrentlyJar()) {
 				int count = 0;
 				for (ClassGen clazz : Obfuscate.classes) {
@@ -59,7 +60,7 @@ public class FieldRenamer extends ObTransform {
 						}
 					}
 				}
-				System.out.println("\t" + count
+				Obfuscate.println("\t" + count
 						+ " constant pool references to " + originalName
 						+ " changed to " + newName);
 			}

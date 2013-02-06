@@ -1,0 +1,39 @@
+Ob is starting!
+
+Processing: example\HelloWorld.class
+Starting encryption on class HelloWorld
+	Changed 4 LDCs
+	Inserted method aA
+Starting field renamer on class HelloWorld
+	Renaming field HelloWorld.x to a
+Starting class renamer on class HelloWorld
+HelloWorld not renamed as contains as main method
+
+Processing: example\Test.jar
+Starting encryption on class org.speed.test.ClassB
+	Changed 1 LDCs
+	Inserted method aA
+Starting field renamer on class org.speed.test.ClassB
+Starting class renamer on class org.speed.test.ClassB
+	renamed source file: ClassB.java to a.java
+	replacing Lorg/speed/test/ClassB;
+	org.speed.test.ClassB renamed to org.speed.test.a
+	org.speed.test.ClassB renamed to org.speed.test.a in class org.speed.test.a
+	org.speed.test.ClassB renamed to org.speed.test.a in class org.speed.test.HelloWorld
+Starting encryption on class org.speed.test.HelloWorld
+	Changed 2 LDCs
+	Inserted method aA
+Starting field renamer on class org.speed.test.HelloWorld
+Starting class renamer on class org.speed.test.HelloWorld
+org.speed.test.HelloWorld not renamed as contains as main method
+Starting encryption on class org.speed.test.ClassA
+	Changed 3 LDCs
+	Inserted method aA
+Starting field renamer on class org.speed.test.ClassA
+Starting class renamer on class org.speed.test.ClassA
+	renamed source file: ClassA.java to b.java
+	replacing Lorg/speed/test/ClassA;
+	org.speed.test.ClassA renamed to org.speed.test.b
+	org.speed.test.ClassA renamed to org.speed.test.b in class org.speed.test.a
+	org.speed.test.ClassA renamed to org.speed.test.b in class org.speed.test.HelloWorld
+	org.speed.test.ClassA renamed to org.speed.test.b in class org.speed.test.b
