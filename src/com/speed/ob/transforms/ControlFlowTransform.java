@@ -30,6 +30,9 @@ public class ControlFlowTransform extends ObTransform {
 	}
 
 	public void execute() {
+		if (cg.isInterface()) {
+			return;
+		}
 		insertControlField();
 		findBranches();
 	}
@@ -39,7 +42,7 @@ public class ControlFlowTransform extends ObTransform {
 			fieldName += "A";
 		}
 		FieldGen fg = new FieldGen(
-				Constants.ACC_STATIC | Constants.ACC_PRIVATE, Type.INT,
+				Constants.ACC_PRIVATE | Constants.ACC_STATIC, Type.INT,
 				fieldName, cg.getConstantPool());
 		cg.addField(fg.getField());
 	}
@@ -53,18 +56,26 @@ public class ControlFlowTransform extends ObTransform {
 					cg.getConstantPool());
 			for (InstructionHandle ih : mg.getInstructionList()
 					.getInstructionHandles()) {
+				// find unconditional branches, add conditions to them
 				if (ih.getInstruction() instanceof GOTO) {
 					InstructionList list = mg.getInstructionList();
 					InstructionFactory factory = new InstructionFactory(cg);
-					list.append(list.append(ih.getPrev(), new ICONST(0)),
-							factory.createFieldAccess(cg.getClassName(),
-									fieldName, Type.INT, Constants.GETSTATIC));
+					// push zero on to the stack
+					InstructionHandle zero = list.append(ih.getPrev(),
+							new ICONST(0));
+					// get the value of the 'control' field
+					list.append(zero, factory.createFieldAccess(
+							cg.getClassName(), fieldName, Type.INT,
+							Constants.GETSTATIC));
+					// compare integers, check if control is zero, complete the
+					// jump if it is
+					InstructionHandle target = ((GOTO) ih.getInstruction())
+							.getTarget();
 					ih.setInstruction(InstructionFactory
 							.createBranchInstruction(Constants.IF_ICMPEQ,
 									((GOTO) ih.getInstruction()).getTarget()));
-
-					list.append(ih,
-							new GOTO(mg.getInstructionList().getStart()));
+					// go to the target anyway
+					list.append(ih, new GOTO(target));
 				}
 			}
 			mg.setMaxLocals();
