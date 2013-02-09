@@ -54,7 +54,7 @@ public class Obfuscate {
 			System.out.println("Usage: java com.speed.ob.Obfuscate [files...]");
 		} else {
 			try {
-				logOutput = new PrintWriter(new File(SimpleDateFormat
+				logOutput = new PrintWriter(new File("logs", SimpleDateFormat
 						.getDateTimeInstance(SimpleDateFormat.SHORT,
 								SimpleDateFormat.LONG, Locale.UK)
 						.format(new Date()).replaceAll("[\\/: ]", " ")

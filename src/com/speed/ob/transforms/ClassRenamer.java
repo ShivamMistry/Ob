@@ -63,7 +63,7 @@ public class ClassRenamer extends ObTransform {
 		// fix references to the class
 		fixConstantPool(cg, className, newName);
 		Obfuscate.println("\t" + className + " renamed to " + newName);
-		if (Obfuscate.isCurrentlyJar())
+		if (Obfuscate.isCurrentlyJar()) {
 			for (ClassGen c : Obfuscate.classes) {
 				ConstantPoolGen cpg = c.getConstantPool();
 				fixConstantPool(c, className, newName);
@@ -72,12 +72,12 @@ public class ClassRenamer extends ObTransform {
 					ConstantClass con = (ConstantClass) cpg.getConstant(index);
 					int utf = con.getNameIndex();
 					ConstantUtf8 utf8 = (ConstantUtf8) cpg.getConstant(utf);
-					utf8.setBytes(newName);
+					utf8.setBytes(newName.replace(".", "/"));
 					Obfuscate.println("\t" + className + " renamed to "
 							+ newName + " in class " + c.getClassName());
 				}
 			}
-
+		}
 	}
 
 	private void fixConstantPool(ClassGen cg, String className, String newName) {
@@ -92,12 +92,7 @@ public class ClassRenamer extends ObTransform {
 							'L' + className1 + ';',
 							'L' + newName.replace('.', '/') + ';');
 					con.setBytes(bytes);
-				} /*else if (con.getBytes().contains(className1)) {
-					Obfuscate.println("\treplacing " + con.getBytes());
-					String bytes = con.getBytes().replace(className1,
-							newName.replace('.', '/'));
-					con.setBytes(bytes);
-				}*/
+				}
 			}
 		}
 	}
