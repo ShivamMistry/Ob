@@ -1,5 +1,7 @@
 package com.speed.ob.transforms;
 
+import java.util.Random;
+
 import org.apache.bcel.Constants;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.generic.ClassGen;
@@ -15,16 +17,18 @@ import org.apache.bcel.generic.Type;
 import com.speed.ob.ObTransform;
 
 /**
- * Obstructs the control flow. Currently in development and NOT WORKING.
+ * Finds unconditional branches and adds a condition to them. This results in
+ * loop obfuscation as many loops will have unconditional branches. Obstructs
+ * the control flow.
  * 
  * @author Shivam Mistry
  * 
  */
-public class ControlFlowTransform extends ObTransform {
-
+public class UnconditionalBranchTransform extends ObTransform {
+	private Random random;
 	private String fieldName;
 
-	public ControlFlowTransform(ClassGen cg) {
+	public UnconditionalBranchTransform(ClassGen cg) {
 		super(cg);
 		fieldName = "controlField";
 	}
@@ -33,21 +37,25 @@ public class ControlFlowTransform extends ObTransform {
 		if (cg.isInterface()) {
 			return;
 		}
+		random = new Random();
 		insertControlField();
-		findBranches();
+		findUnconditionalBranches();
 	}
 
-	public void insertControlField() {
+	private void insertControlField() {
 		while (cg.containsField(fieldName) != null) {
+			// create a control field with a name, this should be name
+			// obfuscated anyway
 			fieldName += "A";
 		}
 		FieldGen fg = new FieldGen(
 				Constants.ACC_PRIVATE | Constants.ACC_STATIC, Type.INT,
 				fieldName, cg.getConstantPool());
+		// add the field to the class
 		cg.addField(fg.getField());
 	}
 
-	public void findBranches() {
+	private void findUnconditionalBranches() {
 		// Random random = new Random();
 		for (Method m : cg.getMethods()) {
 			if (m.isAbstract() || m.isNative() || m.getName().equals("<init>"))
@@ -71,9 +79,13 @@ public class ControlFlowTransform extends ObTransform {
 					// jump if it is
 					InstructionHandle target = ((GOTO) ih.getInstruction())
 							.getTarget();
+					// random between not equal to and equal to, doesn't matter
+					// as the goto will jump to the target anyway
 					ih.setInstruction(InstructionFactory
-							.createBranchInstruction(Constants.IF_ICMPEQ,
-									((GOTO) ih.getInstruction()).getTarget()));
+							.createBranchInstruction(
+									random.nextBoolean() ? Constants.IF_ICMPNE
+											: Constants.IF_ICMPEQ, ((GOTO) ih
+											.getInstruction()).getTarget()));
 					// go to the target anyway
 					list.append(ih, new GOTO(target));
 				}
