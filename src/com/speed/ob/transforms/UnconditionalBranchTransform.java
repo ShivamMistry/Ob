@@ -1,7 +1,5 @@
 package com.speed.ob.transforms;
 
-import java.util.Random;
-
 import org.apache.bcel.Constants;
 import org.apache.bcel.classfile.Method;
 import org.apache.bcel.generic.ClassGen;
@@ -25,7 +23,6 @@ import com.speed.ob.ObTransform;
  * 
  */
 public class UnconditionalBranchTransform extends ObTransform {
-	private Random random;
 	private String fieldName;
 
 	public UnconditionalBranchTransform(ClassGen cg) {
@@ -37,7 +34,6 @@ public class UnconditionalBranchTransform extends ObTransform {
 		if (cg.isInterface()) {
 			return;
 		}
-		random = new Random();
 		insertControlField();
 		findUnconditionalBranches();
 	}
@@ -82,12 +78,10 @@ public class UnconditionalBranchTransform extends ObTransform {
 					// random between not equal to and equal to, doesn't matter
 					// as the goto will jump to the target anyway
 					ih.setInstruction(InstructionFactory
-							.createBranchInstruction(
-									random.nextBoolean() ? Constants.IF_ICMPNE
-											: Constants.IF_ICMPEQ, ((GOTO) ih
-											.getInstruction()).getTarget()));
-					// go to the target anyway
-					list.append(ih, new GOTO(target));
+							.createBranchInstruction(Constants.IF_ICMPEQ,
+									target));
+					// create an infinite loop
+					list.append(ih, new GOTO(ih.getPrev().getPrev()));
 				}
 			}
 			mg.setMaxLocals();
