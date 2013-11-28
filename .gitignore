@@ -161,4 +161,9 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-/logs
+logs/*
+
+
+.idea
+.iml
+.ipr
