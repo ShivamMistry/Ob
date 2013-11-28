@@ -25,17 +25,14 @@ public class ClassRenamer extends ObTransform {
 
 	public ClassRenamer(ClassGen cg) {
 		super(cg);
-		Obfuscate.println("Starting class renamer on class "
-				+ cg.getClassName());
+		Obfuscate.println("Starting class renamer on class " + cg.getClassName());
 	}
 
 	public void execute() {
-		if (cg.containsMethod("main", Type.getMethodSignature(Type.VOID,
-				new Type[] { new ArrayType(Type.STRING, 1) })) != null) {
+		if (cg.containsMethod("main", Type.getMethodSignature(Type.VOID, new Type[] { new ArrayType(Type.STRING, 1) })) != null) {
 			// we usually want to prevent classes with main methods from being
 			// renamed, breaks too many things
-			Obfuscate.println(cg.getClassName()
-					+ " not renamed as contains as main method");
+			Obfuscate.println(cg.getClassName() + " not renamed as contains as main method");
 			return;
 		}
 		// create the new name for the class, leaves the packages intact.
@@ -43,8 +40,7 @@ public class ClassRenamer extends ObTransform {
 		int ind = className.lastIndexOf('.');
 		String newName;
 		if (ind > -1) {
-			newName = className.substring(0, className.lastIndexOf('.')) + '.'
-					+ nameGen.next();
+			newName = className.substring(0, className.lastIndexOf('.')) + '.' + nameGen.next();
 		} else {
 			newName = nameGen.next();
 		}
@@ -54,10 +50,8 @@ public class ClassRenamer extends ObTransform {
 		int ut = cg.getConstantPool().lookupUtf8(fileName);
 		if (ut > -1) {
 			// changes the source file attribute
-			ConstantUtf8 c = (ConstantUtf8) cg.getConstantPool()
-					.getConstant(ut);
-			Obfuscate.println("\trenamed source file: " + fileName + " to "
-					+ nameGen.current() + ".java");
+			ConstantUtf8 c = (ConstantUtf8) cg.getConstantPool().getConstant(ut);
+			Obfuscate.println("\trenamed source file: " + fileName + " to " + nameGen.current() + ".java");
 			c.setBytes(nameGen.current() + ".java");
 		}
 		// fix references to the class
@@ -73,8 +67,7 @@ public class ClassRenamer extends ObTransform {
 					int utf = con.getNameIndex();
 					ConstantUtf8 utf8 = (ConstantUtf8) cpg.getConstant(utf);
 					utf8.setBytes(newName.replace(".", "/"));
-					Obfuscate.println("\t" + className + " renamed to "
-							+ newName + " in class " + c.getClassName());
+					Obfuscate.println("\t" + className + " renamed to " + newName + " in class " + c.getClassName());
 				}
 			}
 		}
@@ -82,15 +75,14 @@ public class ClassRenamer extends ObTransform {
 
 	private void fixConstantPool(ClassGen cg, String className, String newName) {
 		ConstantPoolGen cpg = cg.getConstantPool();
+		newName = newName.replace('.', '/');
 		for (Constant c : cpg.getConstantPool().getConstantPool()) {
 			if (c instanceof ConstantUtf8) {
 				ConstantUtf8 con = (ConstantUtf8) c;
 				String className1 = className.replace('.', '/');
 				if (con.getBytes().contains("L" + className1 + ";")) {
 					Obfuscate.println("\treplacing " + con.getBytes());
-					String bytes = con.getBytes().replace(
-							'L' + className1 + ';',
-							'L' + newName.replace('.', '/') + ';');
+					String bytes = con.getBytes().replace('L' + className1 + ';', 'L' + newName + ';');
 					con.setBytes(bytes);
 				}
 			}
