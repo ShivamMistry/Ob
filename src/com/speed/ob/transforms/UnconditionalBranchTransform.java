@@ -52,6 +52,9 @@ public class UnconditionalBranchTransform extends ObTransform {
         Random random = new SecureRandom();
         dead.append(new ICONST(random.nextInt(6)));
         dead.append(new BIPUSH((byte) random.nextInt(128)));
+        dead.append(new DUP_X1());
+        dead.append(new SWAP());
+        dead.append(new POP());
         dead.append(new POP());
         dead.append(new POP());
         if(mg.getType() == Type.INT || mg.getType() == Type.BOOLEAN || mg.getType() == Type.CHAR || mg.getType() == Type.SHORT
@@ -64,7 +67,7 @@ public class UnconditionalBranchTransform extends ObTransform {
             dead.append(new POP());
 
         }
-        dead.append(new GOTO(list.getStart()));
+        dead.append(new GOTO(dead.getStart()));
         return list.append(end, dead);
     }
 
